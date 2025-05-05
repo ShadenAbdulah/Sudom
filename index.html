@@ -12,19 +12,32 @@
 
   <script>
     async function lookup() {
-      const id = document.getElementById('studentId').value;
-      const url = 'https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec';
+  const id = document.getElementById('studentId').value;
+  const url = 'https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec';
 
-      const res = await fetch(url);
-      const data = await res.json();
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
 
-      if (data.error) {
-        document.getElementById('result').innerHTML = "Student not found.";
-      } else {
-        document.getElementById('result').innerHTML =
-          `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
-      }
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      document.getElementById('result').innerHTML = "Error: Unexpected response from server.";
+      return;
     }
+
+    if (data.error) {
+      document.getElementById('result').innerHTML = `Error: ${data.error}`;
+    } else {
+      document.getElementById('result').innerHTML =
+        `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
+    }
+  } catch (err) {
+    document.getElementById('result').innerHTML = `Fetch error: ${err.message}`;
+  }
+}
+
   </script>
 </body>
 </html>
