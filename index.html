@@ -13,7 +13,7 @@
   <script>
     async function lookup() {
       const id = document.getElementById('studentId').value;
-      const url = `https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec`;
+      const url = `https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec?id=${id}`;
 
       try {
         const res = await fetch(url);
