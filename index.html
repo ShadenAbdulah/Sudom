@@ -13,7 +13,7 @@
   <script>
     async function lookup() {
       const id = document.getElementById('studentId').value;
-      const url = `https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec`;
+      const url = 'https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec';
 
       try {
         const res = await fetch(url);
@@ -28,12 +28,12 @@
         }
   
         if (data.error) {
-          document.getElementById('result').innerHTML = `Error: ${data.error}`;
+          document.getElementById('result').innerHTML = 'Error: ${data.error}';
         } else {
-          document.getElementById('result').innerHTML = `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
+          document.getElementById('result').innerHTML = '<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>';
         }
     } catch (err) {
-      document.getElementById('result').innerHTML = `Fetch error: ${err.message}`;
+      document.getElementById('result').innerHTML = 'Fetch error: ${err.message}';
     }
   }
 
