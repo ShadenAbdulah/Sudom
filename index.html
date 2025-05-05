@@ -23,8 +23,8 @@
         try {
           data = JSON.parse(text);
         } catch (e) {
-        document.getElementById('result').innerHTML = "Error: Unexpected response from server.";
-        return;
+          document.getElementById('result').innerHTML = "Error: Unexpected response from server.";
+          return;
         }
   
         if (data.error) {
@@ -32,10 +32,10 @@
         } else {
           document.getElementById('result').innerHTML = `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
         }
-    } catch (err) {
-      document.getElementById('result').innerHTML = `Fetch error: ${err.message}`;
+      } catch (err) {
+        document.getElementById('result').innerHTML = `Fetch error: ${err.message}`;
+      }
     }
-  }
 
   </script>
 </body>
