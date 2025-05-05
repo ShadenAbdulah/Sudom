@@ -18,7 +18,7 @@
       try {
         const res = await fetch(url);
         const text = await res.text(); // Raw response as text
-        console.log("Raw response:", text); // Log it
+        console.log("Raw response:", text, id); // Log it
     
         let data;
         try {
