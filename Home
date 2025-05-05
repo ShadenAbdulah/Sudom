@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Lookup</title>
+</head>
+<body>
+  <h2>Enter Student ID</h2>
+  <input type="text" id="studentId" placeholder="e.g., 12345" />
+  <button onclick="lookup()">Search</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function lookup() {
+      const id = document.getElementById('studentId').value;
+      const url = 'https://script.google.com/macros/s/AKfycbyVpc3rAgxvspws7d-OlZxr0LjZkpYKQqpZ0g3aCkhFJob2UrEXTdfCupg81Lhjws4J/exec';
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.error) {
+        document.getElementById('result').innerHTML = "Student not found.";
+      } else {
+        document.getElementById('result').innerHTML =
+          `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
