@@ -6,60 +6,53 @@
   <title>Student Lookup</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4 font-sans">
   <h2>Enter Student ID</h2>
   <input type="text" id="studentId" placeholder="e.g., 12345" />
   <button onclick="lookup()">Search</button>
 
   <div id="result"></div>
 
-  <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-    <table class="w-full table-fixed">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
-            </tr>
-        </thead>
-        <tbody class="bg-white">
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">John Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">johndoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <!-- Add more rows here -->
-        </tbody>
+  <!-- Search Bar -->
+  <div class="w-full max-w-md text-center mb-6">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="ابحث هنا..."
+      class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      onclick="performSearch()"
+      class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+    >
+      بحث
+    </button>
+  </div>
+
+  <!-- Table (hidden by default) -->
+  <div id="resultTable" class="hidden w-full max-w-2xl bg-white shadow-md rounded-lg overflow-hidden">
+    <table class="w-full text-right">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="p-3">الاسم</th>
+          <th class="p-3">العمر</th>
+          <th class="p-3">المدينة</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-800">
+        <tr class="border-t">
+          <td class="p-3">أحمد</td>
+          <td class="p-3">25</td>
+          <td class="p-3">الرياض</td>
+        </tr>
+        <tr class="border-t">
+          <td class="p-3">ليلى</td>
+          <td class="p-3">30</td>
+          <td class="p-3">جدة</td>
+        </tr>
+      </tbody>
     </table>
-</div>
+  </div>
 
   <script>
     async function lookup() {
