@@ -74,18 +74,18 @@
           document.getElementById('result').innerHTML = `Error: ${data.error}`;
         } else {
           table.classList.remove('hidden');
-          // document.getElementById('result').innerHTML =
-          //   `<p>Name: ${data.name}</p><p>Phone: ${data.phone}</p>`;
-
           document.getElementById('studentName').innerHTML = `<p> ${data.name} </p>`
           const tbody = document.querySelector("#resultTable tbody");
-        tbody.innerHTML = `
+          tbody.innerHTML = `
           <tr class="border-t">
-            <td class="p-3">${data.mid}</td>
-            <td class="p-3">${data.final}</td>
-            <td class="p-3">${data.grade}</td>
+            // <td class="p-3">${data.mid}</td>
+            // <td class="p-3">${data.final}</td>
           </tr>
         `;
+
+          document.getElementById('result').innerHTML =
+            `<p>Name: ${data.id}</p> <br> 
+            <p>Phone: ${data.birth}</p>`;
         }
       } catch (err) {
         table.classList.add('hidden');
