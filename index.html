@@ -11,8 +11,6 @@
   <input type="text" id="studentId" placeholder="e.g., 12345" />
   <button onclick="lookup()">Search</button> -->
 
-  <div id="result"></div> 
-
   <!-- Search Bar -->
   <div class="w-full max-w-md text-center mb-6">
     <input
@@ -29,12 +27,15 @@
     </button>
   </div>
 
+  <div id="result"></div> 
+
   <!-- Table (hidden by default) -->
   <h2 id="studentName"></h2> <br><br>
-  <div id="resultTable" class="hidden w-full max-w-2xl bg-white shadow-md rounded-lg overflow-hidden">
+  <div id="resultTable" class="hidden w-full bg-white shadow-md rounded-lg overflow-hidden">
     <table class="w-full text-right">
       <thead class="bg-blue-600 text-white">
         <tr>
+          <th class="p-3">الفصل</th>
           <th class="p-3">الحفظ</th>
           <th class="p-3">الإختبار الفصلي</th>
           <th class="p-3">الحضور</th>
