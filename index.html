@@ -35,9 +35,11 @@
     <table class="w-full text-right">
       <thead class="bg-blue-600 text-white">
         <tr>
+          <th class="p-3">الحفظ</th>
           <th class="p-3">الإختبار الفصلي</th>
-          <th class="p-3">الإختبار التتهائي</th>
-          <th class="p-3">التقدير</th>
+          <th class="p-3">الحضور</th>
+          <th class="p-3">الإختبار النهائي</th>
+          <th class="p-3">الواجب</th>
         </tr>
       </thead>
       <tbody class="text-gray-800">
@@ -78,14 +80,40 @@
           const tbody = document.querySelector("#resultTable tbody");
           tbody.innerHTML = `
           <tr class="border-t">
-            // <td class="p-3">${data.mid}</td>
-            // <td class="p-3">${data.final}</td>
+            <td class="p-3">الفصل الأول</td>
+            <td class="p-3">${data.sem1_achive}</td>
+            <td class="p-3">${data.sem1_mid}</td>
+            <td class="p-3">${data.sem1_pres}</td>
+            <td class="p-3">${data.sem1_final}</td>
+            <td class="p-3">${data.sem1_assign}</td>
           </tr>
+
+          <tr class="border-t">
+          <td class="p-3">الفصل الثاني</td>
+          <td class="p-3">${data.sem2_achive}</td>
+            <td class="p-3">${data.sem2_mid}</td>
+            <td class="p-3">${data.sem2_pres}</td>
+            <td class="p-3">${data.sem2_final}</td>
+            <td class="p-3">${data.sem2_assign}</td>
+          </tr>
+          
+          <tr class="border-t">
+          <td class="p-3">الفصل الثالث</td>
+          <td class="p-3">${data.sem3_achive}</td>
+            <td class="p-3">${data.sem3_mid}</td>
+            <td class="p-3">${data.sem3_pres}</td>
+            <td class="p-3">${data.sem3_final}</td>
+            <td class="p-3">${data.sem3_assign}</td>
+          </tr> 
         `;
 
           document.getElementById('result').innerHTML =
-            `<p>Name: ${data.id}</p> <br> 
-            <p>Phone: ${data.birth}</p>`;
+            `<p>رقم الطالبة: ${data.id}</p> <br> 
+            <p>تاريخ الميلاد: ${data.birth}</p>
+            <p>الجنسية: ${data.nat}</p> <br> 
+            <p>رقم الجوال: ${data.phone}</p> <br> 
+            <p>الدفعة: ${data.group}</p> <br> 
+            `;
         }
       } catch (err) {
         table.classList.add('hidden');
